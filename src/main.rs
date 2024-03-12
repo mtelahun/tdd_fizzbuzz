@@ -1,8 +1,8 @@
 #[derive(Debug)]
 struct FizzBuzz {}
 impl FizzBuzz {
-    fn run(&self) -> String {
-        String::from("")
+    fn run(&self, input: i32) -> String {
+        format!("{input}")
     }
 }
 
@@ -15,14 +15,18 @@ mod tests {
     use crate::FizzBuzz;
 
     #[test]
-    fn given_fizzbuzz_when_given_empty_input_then_return_empty_output() {
+    fn given_fizzbuzz_when_input_is_1_then_return_string_1() {
         // Arrange
         let fizz_buzz = FizzBuzz {};
 
         // Act
-        let res = fizz_buzz.run();
+        let res = fizz_buzz.run(1);
 
         // Assert
-        assert!(res.is_empty())
+        assert_eq!(
+            String::from("1"),
+            res,
+            "Input of number 1 gives output of string \"1\""
+        );
     }
 }
